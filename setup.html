@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exam Setup | PrePa Academic CBT</title>
+<meta name="description" content="Choose class, term, and subject before starting a PrePa academic CBT exam.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#A41849">
+<link rel="icon" type="image/png" sizes="192x192" href="./assets/images/PrePa_favicon.png">
+<link rel="apple-touch-icon" href="./assets/images/PrePa_favicon.png">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="./styles/global.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body class="min-vh-100 bg-light text-dark d-flex flex-column">
+<header class="bg-white shadow-sm position-sticky top-0" style="z-index:1000">
+  <div class="container px-4 py-3 d-flex align-items-center justify-content-between gap-3">
+    <a href="index.html" class="d-flex align-items-center gap-3 text-decoration-none">
+      <img src="./assets/images/logo 1.png" alt="PrePa logo" width="42" height="42" class="rounded shadow-sm">
+      <div class="lh-sm">
+        <h1 class="h5 fw-bold mb-0 text-primary-emphasis">PrePa Academic CBT</h1>
+        <p class="text-muted small mb-0 d-none d-sm-block">Class-based exam setup</p>
+      </div>
+    </a>
+    <button onclick="logout()" class="btn btn-outline-secondary btn-sm d-flex align-items-center gap-2">
+      <i class="bi bi-box-arrow-right"></i> <span class="d-none d-sm-inline">Logout</span>
+    </button>
+  </div>
+</header>
+
+<main class="flex-grow-1">
+  <section class="setup-shell">
+    <div class="container px-4">
+      <div class="row g-4 g-xl-5 align-items-stretch">
+        <div class="col-lg-5">
+          <div class="setup-intro h-100">
+            <span class="eyebrow-pill mb-3">Academic CBT setup</span>
+            <h2 class="display-6 fw-bold mb-3">Choose the right exam path before you begin.</h2>
+            <p class="lead text-muted mb-4">PrePa now supports class, term, and subject based testing for junior and senior secondary learners.</p>
+            <div class="setup-feature-list">
+              <div class="setup-feature">
+                <i class="bi bi-layers"></i>
+                <span>JSS 1 to SS 2 class coverage</span>
+              </div>
+              <div class="setup-feature">
+                <i class="bi bi-calendar3"></i>
+                <span>First, Second, and Third Term question routing</span>
+              </div>
+              <div class="setup-feature">
+                <i class="bi bi-journal-check"></i>
+                <span>Subject-specific timed CBT session</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-7">
+          <div class="setup-card">
+            <div class="d-flex flex-column flex-md-row justify-content-between gap-3 mb-4">
+              <div>
+                <p class="section-kicker mb-2">Start exam</p>
+                <h2 class="h3 fw-bold mb-1">Exam Setup</h2>
+                <p class="text-muted mb-0">Complete these fields so PrePa can load the correct question set.</p>
+              </div>
+              <div class="setup-progress-card">
+                <span class="extra-small text-muted">Flow</span>
+                <strong>Class + Term + Subject</strong>
+              </div>
+            </div>
+
+            <form id="setup-form" class="row g-3 g-md-4">
+              <div class="col-md-6">
+                <label for="first-name" class="form-label small fw-bold text-muted">First Name</label>
+                <input id="first-name" name="firstName" required autocomplete="given-name" class="form-control form-control-lg fs-6 input-focus-effect" placeholder="First name">
+              </div>
+              <div class="col-md-6">
+                <label for="last-name" class="form-label small fw-bold text-muted">Last Name</label>
+                <input id="last-name" name="lastName" required autocomplete="family-name" class="form-control form-control-lg fs-6 input-focus-effect" placeholder="Last name">
+              </div>
+
+              <div class="col-md-4">
+                <label for="class-level" class="form-label small fw-bold text-muted">Class</label>
+                <select id="class-level" name="classLevel" required class="form-select form-select-lg fs-6 input-focus-effect"></select>
+              </div>
+              <div class="col-md-4">
+                <label for="term" class="form-label small fw-bold text-muted">Term</label>
+                <select id="term" name="term" required class="form-select form-select-lg fs-6 input-focus-effect"></select>
+              </div>
+              <div class="col-md-4">
+                <label for="selected-subject" class="form-label small fw-bold text-muted">Subject</label>
+                <select id="selected-subject" name="subject" required class="form-select form-select-lg fs-6 input-focus-effect">
+                  <option value="" disabled selected>Select Subject</option>
+                </select>
+              </div>
+
+              <div class="col-12">
+                <div id="setup-availability" class="setup-availability"></div>
+              </div>
+
+              <div class="col-12 d-grid d-md-flex gap-3 justify-content-md-end pt-2">
+                <a href="index.html" class="btn btn-outline-secondary btn-lg px-4 d-flex justify-content-center align-items-center gap-2">
+                  <i class="bi bi-arrow-left"></i> Home
+                </a>
+                <button type="submit" class="btn btn-danger btn-lg px-5 d-flex justify-content-center align-items-center gap-2">
+                  Start Exam <i class="bi bi-arrow-right"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="./scripts/core/auth.js"></script>
+<script src="./scripts/data/questions.js"></script>
+<script src="./scripts/config/platformConfig.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    checkAccess();
+
+    const userData = getUserData() || {};
+    const savedStudent = JSON.parse(localStorage.getItem("studentDetails")) || {};
+    const firstNameInput = document.getElementById("first-name");
+    const lastNameInput = document.getElementById("last-name");
+    const classSelect = document.getElementById("class-level");
+    const termSelect = document.getElementById("term");
+    const subjectSelect = document.getElementById("selected-subject");
+    const availabilityEl = document.getElementById("setup-availability");
+    const nameParts = String(userData.name || "").trim().split(/\s+/);
+    const questionBank = getQuestionBank();
+
+    firstNameInput.value = savedStudent.firstName || nameParts[0] || "";
+    lastNameInput.value = savedStudent.lastName || nameParts.slice(1).join(" ") || "";
+
+    classSelect.innerHTML = PREPA_CLASSES.map(item =>
+      `<option value="${item.value}">${item.label}</option>`
+    ).join("");
+    classSelect.value = savedStudent.classLevel || localStorage.getItem("selectedClassLevel") || PREPA_DEFAULT_CLASS;
+
+    termSelect.innerHTML = PREPA_TERMS.map(term =>
+      `<option value="${term}">${term}</option>`
+    ).join("");
+    termSelect.value = savedStudent.term || localStorage.getItem("selectedTerm") || PREPA_DEFAULT_TERM;
+
+    const savedSubject = savedStudent.selectedSubject || localStorage.getItem("selectedSubject") || "";
+    subjectSelect.insertAdjacentHTML("beforeend", createSubjectOptionsHtml(savedSubject));
+    if (savedSubject) {
+      subjectSelect.value = savedSubject;
+    }
+
+    function updateAvailability() {
+      const subject = subjectSelect.value;
+      const questions = getQuestionsForSelection(questionBank, {
+        classLevel: classSelect.value,
+        term: termSelect.value,
+        subject
+      });
+      const hasQuestions = subject && questions.length > 0;
+
+      availabilityEl.className = `setup-availability ${hasQuestions ? "is-ready" : "is-empty"}`;
+      availabilityEl.innerHTML = hasQuestions
+        ? `<i class="bi bi-check-circle-fill"></i><span>${questions.length} question(s) available for ${getClassLabel(classSelect.value)} - ${termSelect.value} - ${subject}.</span>`
+        : `<i class="bi bi-info-circle-fill"></i><span>Select a subject with uploaded questions. Existing JAMB subjects remain available while class-term question banks are added.</span>`;
+    }
+
+    [classSelect, termSelect, subjectSelect].forEach(element => {
+      element.addEventListener("change", updateAvailability);
+    });
+    updateAvailability();
+
+    document.getElementById("setup-form").addEventListener("submit", event => {
+      event.preventDefault();
+
+      const firstName = firstNameInput.value.trim();
+      const lastName = lastNameInput.value.trim();
+      const classLevel = normalizeClassLevel(classSelect.value);
+      const term = termSelect.value;
+      const selectedSubject = subjectSelect.value;
+      const availableQuestions = getQuestionsForSelection(questionBank, { classLevel, term, subject: selectedSubject });
+
+      if (!firstName || !lastName || !classLevel || !term || !selectedSubject) {
+        alert("Please complete all setup fields.");
+        return;
+      }
+
+      if (availableQuestions.length === 0) {
+        alert("No questions are available for this subject yet. Please choose another subject or upload questions from the admin panel.");
+        return;
+      }
+
+      localStorage.removeItem("userAnswers");
+      localStorage.removeItem("shuffledQuestions");
+      localStorage.removeItem("examEndTime");
+      localStorage.removeItem("currentQuestionIndex");
+
+      const sessionId = "sess-" + Date.now() + "-" + Math.random().toString(36).slice(2, 8);
+      const studentDetails = { firstName, lastName, classLevel, term, selectedSubject, sessionId };
+
+      localStorage.setItem("studentDetails", JSON.stringify(studentDetails));
+      localStorage.setItem("selectedClassLevel", classLevel);
+      localStorage.setItem("selectedTerm", term);
+      localStorage.setItem("selectedSubject", selectedSubject);
+      window.location.href = "exam.html";
+    });
+  });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

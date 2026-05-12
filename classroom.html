@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Classroom | PrePa AI Learning Assistant</title>
+<meta name="description" content="PrePa Classroom is an AI-powered learning space where students can explore topics, ask follow-up questions, and receive beginner-friendly explanations.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#A41849">
+<link rel="icon" type="image/png" sizes="192x192" href="./assets/images/PrePa_favicon.png">
+<link rel="apple-touch-icon" href="./assets/images/PrePa_favicon.png">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="./styles/global.css" rel="stylesheet">
+<link href="./styles/features/classroom.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body class="classroom-body min-vh-100">
+<header class="classroom-topbar">
+  <div class="container-fluid px-3 px-md-4 py-3 d-flex align-items-center justify-content-between gap-3">
+    <a href="index.html" class="classroom-brand text-decoration-none">
+      <img src="./assets/images/logo 1.png" alt="PrePa logo" width="42" height="42" class="rounded shadow-sm">
+      <span>
+        <strong>PrePa Classroom</strong>
+        <small>AI-powered learning assistant</small>
+      </span>
+    </a>
+    <nav class="d-flex align-items-center gap-2">
+      <a href="setup.html" class="btn btn-light btn-sm classroom-nav-btn">
+        <i class="bi bi-pencil-square"></i><span class="d-none d-sm-inline"> CBT Exam</span>
+      </a>
+      <a href="index.html" class="btn btn-outline-light btn-sm classroom-nav-btn">
+        <i class="bi bi-house"></i><span class="d-none d-sm-inline"> Home</span>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main class="classroom-main">
+  <section class="classroom-hero">
+    <div class="container px-3 px-md-4">
+      <div class="row g-4 align-items-end">
+        <div class="col-lg-7">
+          <span class="classroom-kicker">Smart learning space</span>
+          <h1>Ask any academic topic and learn it step by step.</h1>
+          <p>Get clear explanations, examples, key ideas, and follow-up help from a classroom-style AI tutor.</p>
+        </div>
+        <div class="col-lg-5">
+          <div class="classroom-stat-grid">
+            <div><strong>24/7</strong><span style="color: rgb(0, 0, 0);">study support</span></div>
+            <div ><strong>JSS-SS</strong><span style="color: rgb(0, 0, 0);">friendly explanations</span></div>
+            <div><strong>AI-ready</strong><span style="color: rgb(0, 0, 0);">modular provider layer</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-fluid px-3 px-md-4 pb-4">
+    <div class="classroom-layout">
+      <aside class="classroom-sidebar">
+        <div class="classroom-panel">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <i class="bi bi-stars text-danger"></i>
+            <h2 class="h6 mb-0">Try a topic</h2>
+          </div>
+          <div class="topic-chip-list" id="topic-chip-list">
+            <button type="button" data-topic="Photosynthesis">Photosynthesis</button>
+            <button type="button" data-topic="Algebra">Algebra</button>
+            <button type="button" data-topic="HTML Basics">HTML Basics</button>
+            <button type="button" data-topic="Sulphur Compounds">Sulphur Compounds</button>
+            <button type="button" data-topic="Civic Responsibility">Civic Responsibility</button>
+          </div>
+        </div>
+
+        <div class="classroom-panel">
+          <div class="d-flex align-items-center justify-content-between gap-2 mb-3">
+            <h2 class="h6 mb-0">Recent topics</h2>
+            <button id="clear-history-btn" class="btn btn-sm btn-link text-decoration-none p-0">Clear</button>
+          </div>
+          <div id="topic-history" class="topic-history">
+            <p class="text-muted small mb-0">Your recent Classroom topics will appear here.</p>
+          </div>
+        </div>
+      </aside>
+
+      <section class="classroom-workspace">
+        <div class="classroom-search-card">
+          <form id="topic-form" class="topic-form" autocomplete="off">
+            <label for="topic-input" class="form-label">What do you want to learn today?</label>
+            <div class="topic-input-row">
+              <input id="topic-input" name="topic" maxlength="120" required placeholder="Type a topic, e.g. Photosynthesis, Algebra, HTML Basics" aria-describedby="topic-help">
+              <button id="learn-btn" type="submit">
+                <span>Learn</span>
+                <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+            <p id="topic-help" class="text-muted small mb-0">Use a clear academic topic. You can ask follow-up questions after the lesson appears.</p>
+          </form>
+        </div>
+
+        <div id="classroom-alert" class="classroom-alert d-none" role="alert"></div>
+
+        <div id="lesson-area" class="lesson-area">
+          <article class="welcome-card">
+            <div class="welcome-icon"><i class="bi bi-mortarboard"></i></div>
+            <div>
+              <h2>Welcome to Classroom</h2>
+              <p>Search a topic to begin. PrePa will explain it like a patient tutor, then you can keep asking questions until the idea feels clear.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="followup-card">
+          <form id="followup-form" class="followup-form" autocomplete="off">
+            <input id="followup-input" maxlength="180" placeholder="Ask a follow-up question..." aria-label="Ask a follow-up question" disabled>
+            <button id="followup-btn" type="submit" disabled>
+              <i class="bi bi-send"></i>
+              <span class="visually-hidden">Send</span>
+            </button>
+          </form>
+          <div class="followup-suggestions" id="followup-suggestions">
+            <button type="button" disabled>Explain it simply</button>
+            <button type="button" disabled>Give examples</button>
+            <button type="button" disabled>Summarize key points</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+</main>
+
+<script src="./scripts/core/auth.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    checkAccess();
+  });
+</script>
+<script src="./scripts/services/classroomApi.js"></script>
+<script src="./scripts/features/classroom/classroom.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+body.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font-family: "Inter", sans-serif;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 15px;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.auth-card .btn-primary {
+  border: 0;
+  background: #a41849;
+}
+
+.auth-card .btn-primary:hover {
+  background: #8a143d;
+}
+
+.auth-card .form-check-input:checked {
+  border-color: #a41849;
+  background-color: #a41849;
+}

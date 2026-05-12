@@ -1,0 +1,21 @@
+{
+  "name": "prepa-platform",
+  "version": "1.0.0",
+  "description": "PrePa CBT and AI-powered Classroom platform.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "edtech",
+    "cbt",
+    "gemini",
+    "ai-classroom"
+  ],
+  "author": "David Joshua",
+  "license": "UNLICENSED"
+}
